@@ -71,9 +71,9 @@ heroku ps:scale bot=1
 ```
 /a wpr 2500
 ```
-<img src="img/a_wpr_h1.png" width="700">
+<img src="img/a_wpr_2500_h1.png" width="700">
 
-<img src="img/a_wpr_m30.png" width="700">
+<img src="img/a_wpr_2500_m30.png" width="700">
 
 ```
 /ic
