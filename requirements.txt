@@ -1,0 +1,8 @@
+python-telegram-bot
+python-binance
+numpy
+datetime
+matplotlib
+psycopg2
+urllib
+json
