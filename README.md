@@ -14,8 +14,11 @@
 ## Features
 
 - Standard technical indicators
-- Order flow
-- Market indexes
+- Order flow trading
+- Market indexes and rankings
+- Social network sentiment
+- Developer activities
+- Trading sessions
 - Customized notifications
 
 ## Run on local machine
