@@ -20,6 +20,7 @@
 - Developer activities
 - Trading sessions
 - Customized notifications
+- Admin and user management
 
 ## Run on local machine
 
@@ -77,18 +78,20 @@ heroku ps:scale bot=1
 
 ## Screenshots
 
+### Order flow trading
 ```
 /a wpr 2500
 ```
 <img src="img/a_wpr_2500_h1.png" width="700">
-
 <img src="img/a_wpr_2500_m30.png" width="700">
 
+### Market indexes
 ```
 /ic
 ```
 <img src="img/ic.png" width="700">
 
+### Trading sessions
 ```
 /h
 ```
