@@ -30,7 +30,7 @@ def crix_index(client):
     ax1.set_ylabel("CRIX [Intraday]",fontsize=20)
     axc.get_yaxis().set_label_coords(1.06,0.5) 
     axc.set_ylabel("BTCUSDT M5",fontsize=20)
-    ax1.set_title('The CRypto IndeX (CRIX) provides insight about the current and past movement of the cryptocurrencies market\nThe intraday chart depicts past 24h evolution of the CRIX, updated every 5mins, with current value is '+"{:.2f}".format(crix_value[-1])+"\nCredit: http://thecrix.de\nDisclamer: The CRIX is quite outdated in comparison to the Bletchley index, however still might be useful",fontsize=20,y=1.03,loc='left')
+    ax1.set_title('The CRypto IndeX (CRIX) provides insight about the current and past movement of the cryptocurrencies market\nThe intraday chart depicts past 24h evolution of the CRIX, updated every 5mins, with current value is '+"{:.2f}".format(crix_value[-1])+"\nDisclamer: The CRIX is quite outdated in comparison to the Bletchley index, however still might be useful",fontsize=20,y=1.03,loc='left')
     
     response=urllib.urlopen("http://thecrix.de/data/crix.json")
     crix_data=json.loads(response.read())
