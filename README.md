@@ -146,9 +146,9 @@ Misc
 
 ### Market indexes
 ```
-/ic
+/m
 ```
-<img src="img/ic.png" width="700">
+<img src="img/m.png" width="700">
 
 ### Trading sessions
 ```
