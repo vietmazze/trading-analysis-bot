@@ -44,9 +44,6 @@ def crix_index(client):
     ax2.get_yaxis().set_label_coords(-0.06,0.5) 
     ax2.set_ylabel("CRIX [Past week]",fontsize=20)
     
-    response=urllib.urlopen("http://thecrix.de/data/crix.json")
-    crix_data=json.loads(response.read())
-    crix_value=[data['price'] for data in crix_data]
     ax3.plot(crix_value[-30:],color='b',linewidth=2.5,linestyle='-')
     ax3.yaxis.grid(True)
     for tic in ax3.xaxis.get_major_ticks():
@@ -56,9 +53,6 @@ def crix_index(client):
     ax3.get_yaxis().set_label_coords(-0.06,0.5) 
     ax3.set_ylabel("CRIX [Past month]",fontsize=20)
     
-    response=urllib.urlopen("http://thecrix.de/data/crix.json")
-    crix_data=json.loads(response.read())
-    crix_value=[data['price'] for data in crix_data]
     ax4.plot(crix_value[-90:],color='b',linewidth=2.5,linestyle='-')
     ax4.yaxis.grid(True)
     for tic in ax4.xaxis.get_major_ticks():
