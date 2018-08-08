@@ -83,58 +83,58 @@ heroku ps:scale bot=1
 /i npxs
 ```
 ```
-Symbol: NPXS Name: Pundi X
-*Community*
-- reddit accounts active 48h: 51
-- twitter followers: 40273
-- reddit subscribers: 2342
-- reddit average posts 48h: 0.955
-- reddit average comments 48h: 15.5
-- facebook likes: 107214
-*Developer*
-- pull requests merged: 0
-- commit count 4 weeks: 0
-- stars: 1
-- total issues: 0
-- subscribers: 0
-- pull request contributors: 0
-- forks: 1
-- closed issues: 0
-*Market*
-- ath change percentage: -83.87082275 btc -87.38840617 usd
-- circulating supply: 101102252411.49507141
-- price change percentage 7d in currency: -6.76702839 btc -24.15269053 usd
-- price change percentage 60d in currency: -72.10525512 btc -76.75106923 usd
-- current price: 0.00000029 btc 0.00182400 usd
-- price change percentage 60d: -76.75106923
-- low 24h: 0.00000028 btc 0.00174536 usd
-- market cap change percentage 24h: -16.85483411
+Symbol: HOT Name: Holo
+Community
+- reddit subscribers: 2471
+- reddit accounts active 48h: 364
+- twitter followers: 7331
+- facebook likes: 2259
+- reddit average comments 48h: 10.227
+- reddit average posts 48h: 0.5
+Developer
+- stars: 603
+- subscribers: 132
+- pull requests merged: 134
+- pull request contributors: 17
+- commit count 4 weeks: 1
+- total issues: 580
+- closed issues: 337
+- forks: 92
+Market
+- ath: 0.00000028 btc 0.00205572 usd
+- price change percentage 7d in currency: 27.16022205 btc 3.30463186 usd
+- price change percentage 14d in currency: -4.46554722 btc -28.61982898 usd
+- price change percentage 30d in currency: 43.95773011 btc 35.18903964 usd
+- price change percentage 60d: -33.87494238
+- market cap change 24h: -5173232.46080100
+- price change 24h: -0.00002913
+- ath change percentage: -63.22574529 btc -68.75396553 usd
 - price change percentage 1y: 0.00000000
+- market cap: 18102.20975849 btc 113907961.08640514 usd
+- price change percentage 24h in currency: 2.43998086 btc -4.34429007 usd
+- price change percentage 60d in currency: -20.54299099 btc -33.87494238 usd
 - price change percentage 200d: 0.00000000
-- ath: 0.00000179 btc 0.01446299 usd
-- total volume: 1360.67323203 btc 8573900.96211540 usd
-- market cap change 24h in currency: -3796.08654186 btc -37382901.31112948 usd
-- price change percentage 7d: -24.15269053
-- price change percentage 30d in currency: -52.63038921 btc -55.45402743 usd
-- price change percentage 14d in currency: -17.37003225 btc -38.17597396 usd
-- market cap change 24h: -37382901.31113000
-- price change percentage 30d: -55.45402743
-- price change percentage 24h: -16.85483411
-- price change percentage 24h in currency: -11.48174844 btc -16.85483411 usd
-- market cap change percentage 24h in currency: -11.48174844 btc -16.85483411 usd
-- price change 24h in currency: -0.00000004 btc -0.00036975 usd
-- price change percentage 14d: -38.17597396
-- price change 24h: -0.00036975
-- high 24h: 0.00000034 btc 0.00226542 usd
-- market cap: 29265.83396764 btc 184410449.25842109 usd
-*Misc*
-- coingecko score: 41.47
-- community score: 43.30
-- public interest score: 28.78
-- coingecko rank: 178.00
-- market cap rank: 49.00
-- developer score: 12.00
-- liquidity score: 48.92
+- price change percentage 14d: -28.61982898
+- market cap change percentage 24h: -4.34429007
+- market cap change percentage 24h in currency: 2.43998086 btc -4.34429007 usd
+- high 24h: 0.00000011 btc 0.00069911 usd
+- current price: 0.00000010 btc 0.00064146 usd
+- total volume: 1164.27386176 btc 7326180.80936694 usd
+- price change percentage 30d: 35.18903964
+- price change percentage 24h: -4.34429007
+- circulating supply: 177575028682.94799805
+- market cap change 24h in currency: 431.16998809 btc -5173232.46080045 usd
+- price change 24h in currency: 0.00000000 btc -0.00002913 usd
+- low 24h: 0.00000010 btc 0.00062638 usd
+- price change percentage 7d: 3.30463186
+Misc
+- community score: 37.72
+- market cap rank: 73.00
+- liquidity score: 49.12
+- coingecko score: 53.14
+- public interest score: 33.76
+- coingecko rank: 62.00
+- developer score: 63.61
 ```
 
 ### Order flow trading
