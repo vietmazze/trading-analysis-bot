@@ -80,7 +80,7 @@ heroku ps:scale bot=1
 
 ### General information
 ```
-/i npxs
+/i hot
 ```
 ```
 Symbol: HOT Name: Holo
