@@ -6,7 +6,7 @@ from telegram.ext import Updater,CommandHandler,MessageHandler,Filters
 
 from binance.client import Client
 
-import infolib,tradelib,indexes,misclib
+import infolib,tradelib,indexlib,misclib
 
 TOKEN=os.environ['TELEGRAM_TOKEN']
 
@@ -118,7 +118,7 @@ def a(bot,update,args):
          
 def ic(bot,update):
     bot.send_chat_action(chat_id=update.message.chat_id,action=telegram.ChatAction.TYPING)
-    indexes.crix_index(client)
+    indexlib.crix_index(client)
     bot.send_photo(chat_id=update.message.chat_id, photo=open('crix.png', 'rb'))
     if str(update.message.from_user.username)!=ADMIN_USERNAME:
         bot.sendMessage(ADMIN_ID,'chat_id: '+str(update.message.chat_id)+' username: @'+str(update.message.from_user.username)+' cmd: crix')
