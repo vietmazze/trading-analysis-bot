@@ -78,6 +78,65 @@ heroku ps:scale bot=1
 
 ## Screenshots
 
+### General information
+```
+/i npxs
+```
+```
+Symbol: NPXS Name: Pundi X
+*Community*
+- reddit accounts active 48h: 51
+- twitter followers: 40273
+- reddit subscribers: 2342
+- reddit average posts 48h: 0.955
+- reddit average comments 48h: 15.5
+- facebook likes: 107214
+*Developer*
+- pull requests merged: 0
+- commit count 4 weeks: 0
+- stars: 1
+- total issues: 0
+- subscribers: 0
+- pull request contributors: 0
+- forks: 1
+- closed issues: 0
+*Market*
+- ath change percentage: -83.87082275 btc -87.38840617 usd
+- circulating supply: 101102252411.49507141
+- price change percentage 7d in currency: -6.76702839 btc -24.15269053 usd
+- price change percentage 60d in currency: -72.10525512 btc -76.75106923 usd
+- current price: 0.00000029 btc 0.00182400 usd
+- price change percentage 60d: -76.75106923
+- low 24h: 0.00000028 btc 0.00174536 usd
+- market cap change percentage 24h: -16.85483411
+- price change percentage 1y: 0.00000000
+- price change percentage 200d: 0.00000000
+- ath: 0.00000179 btc 0.01446299 usd
+- total volume: 1360.67323203 btc 8573900.96211540 usd
+- market cap change 24h in currency: -3796.08654186 btc -37382901.31112948 usd
+- price change percentage 7d: -24.15269053
+- price change percentage 30d in currency: -52.63038921 btc -55.45402743 usd
+- price change percentage 14d in currency: -17.37003225 btc -38.17597396 usd
+- market cap change 24h: -37382901.31113000
+- price change percentage 30d: -55.45402743
+- price change percentage 24h: -16.85483411
+- price change percentage 24h in currency: -11.48174844 btc -16.85483411 usd
+- market cap change percentage 24h in currency: -11.48174844 btc -16.85483411 usd
+- price change 24h in currency: -0.00000004 btc -0.00036975 usd
+- price change percentage 14d: -38.17597396
+- price change 24h: -0.00036975
+- high 24h: 0.00000034 btc 0.00226542 usd
+- market cap: 29265.83396764 btc 184410449.25842109 usd
+*Misc*
+- coingecko score: 41.47
+- community score: 43.30
+- public interest score: 28.78
+- coingecko rank: 178.00
+- market cap rank: 49.00
+- developer score: 12.00
+- liquidity score: 48.92
+```
+
 ### Order flow trading
 ```
 /a wpr 2500
