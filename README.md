@@ -1,4 +1,4 @@
-# [<img src="https://github.com/trinhvv/trading-analysis-bot/blob/master/img/avatar.png">] *Trading Analysis Bot*
+# <img src="https://github.com/trinhvv/trading-analysis-bot/blob/master/img/avatar.png"> Trading Analysis Bot
 
 [![Dependencies](https://img.shields.io/badge/dependencies-talib-brightgreen.svg)](http://mrjbq7.github.io/ta-lib/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
