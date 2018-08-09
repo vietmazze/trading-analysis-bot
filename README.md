@@ -1,8 +1,4 @@
-[<img src="https://github.com/QuantLet/Styleguide-and-FAQ/blob/master/pictures/banner.png" width="888" alt="Visit QuantNet">](http://quantlet.de/)
-
-## [<img src="https://github.com/QuantLet/Styleguide-and-FAQ/blob/master/pictures/qloqo.png" alt="Visit QuantNet">](http://quantlet.de/) **ECRIXindex** [<img src="https://github.com/QuantLet/Styleguide-and-FAQ/blob/master/pictures/QN2.png" width="60" alt="Visit QuantNet 2.0">](http://quantlet.de/)
-
-# Trading Analysis Bot
+# [<img src="https://github.com/trinhvv/trading-analysis-bot/blob/master/img/avatar.png">] *Trading Analysis Bot*
 
 [![Dependencies](https://img.shields.io/badge/dependencies-talib-brightgreen.svg)](http://mrjbq7.github.io/ta-lib/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
