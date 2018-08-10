@@ -93,11 +93,12 @@ def admin(bot,update,args):
             bot.send_message(chat_id=update.message.chat_id,text="ID list: "+str(id_list))
             
 def send_msg(bot,update):
-    msg=update.message.text
-    if msg[0:10]=='/send_msg ':
-        msg=msg[10:]
-        for id_item in id_list:
-            bot.send_message(chat_id=id_item,text=msg,parse_mode=ParseMode.MARKDOWN)
+    if str(update.message.from_user.username)==ADMIN_USERNAME:
+        msg=update.message.text
+        if msg[0:10]=='/send_msg ':
+            msg=msg[10:]
+            for id_item in id_list:
+                bot.send_message(chat_id=id_item,text=msg,parse_mode=ParseMode.MARKDOWN)
 
 def a(bot,update,args):
     bot.send_chat_action(chat_id=update.message.chat_id,action=telegram.ChatAction.TYPING)
@@ -132,12 +133,11 @@ def m(bot,update):
         bot.sendMessage(ADMIN_ID,'chat_id: '+str(update.message.chat_id)+' username: @'+str(update.message.from_user.username)+' cmd: crix')
             
 def h(bot,update):
-    if str(update.message.from_user.username) in user_list:
-        bot.send_chat_action(chat_id=update.message.chat_id,action=telegram.ChatAction.TYPING)
-        misclib.trading_sessions(client)
-        bot.send_photo(chat_id=update.message.chat_id, photo=open('trading-sessions.png', 'rb'))
-        if str(update.message.from_user.username)!=ADMIN_USERNAME:
-            bot.sendMessage(ADMIN_ID,'chat_id: '+str(update.message.chat_id)+' username: @'+str(update.message.from_user.username)+' cmd: h')
+    bot.send_chat_action(chat_id=update.message.chat_id,action=telegram.ChatAction.TYPING)
+    misclib.trading_sessions(client)
+    bot.send_photo(chat_id=update.message.chat_id, photo=open('trading-sessions.png', 'rb'))
+    if str(update.message.from_user.username)!=ADMIN_USERNAME:
+        bot.sendMessage(ADMIN_ID,'chat_id: '+str(update.message.chat_id)+' username: @'+str(update.message.from_user.username)+' cmd: h')
                 
 def manual(bot,update):
     global id_list
