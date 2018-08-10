@@ -13,11 +13,11 @@
 
 ## Features
 
-- Standard technical indicators
-- Order flow trading
-- Market indexes and rankings
-- Social network sentiment
-- Developer activities
+- Standard technical indicators: Pivot points, RSI, MA, etc
+- Order flow trading: Volume profile, orderbook
+- Market indexes and rankings: CRIX, Bletchley index, NVT ratio, etc
+- Social sentiment: Twitter, Reddit, Facebook
+- Developer activities: GitHub
 - Trading sessions
 - Customized notifications
 - Admin and user management
