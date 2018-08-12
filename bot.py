@@ -127,7 +127,7 @@ def i(bot,update,args):
         
 def m(bot,update):
     bot.send_chat_action(chat_id=update.message.chat_id,action=telegram.ChatAction.TYPING)
-    indexlib.crix_index(client)
+    indexlib.market_indexes(client)
     bot.send_photo(chat_id=update.message.chat_id, photo=open('indexes.png', 'rb'))
     if str(update.message.from_user.username)!=ADMIN_USERNAME:
         bot.sendMessage(ADMIN_ID,'chat_id: '+str(update.message.chat_id)+' username: @'+str(update.message.from_user.username)+' cmd: indexes')
