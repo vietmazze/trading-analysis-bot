@@ -1,4 +1,4 @@
-import urllib,json,numpy
+import urllib,csv,urllib2,json,numpy
 
 import matplotlib
 matplotlib.use('Agg')
@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 plt.style.use('classic')
 from visuallib import candlestick2_ohlc
 
-def crix_index(client):
-    f,(ax1,ax2,ax3,ax4)=plt.subplots(4,1,gridspec_kw={'height_ratios':[1.5,1,1,1]})
-    f.set_size_inches(20,20)
+def market_indexes(client):
+    f,(ax1,ax2,ax3,ax4,ax5)=plt.subplots(5,1,gridspec_kw={'height_ratios':[1.5,1,1,1,1.25]})
+    f.set_size_inches(20,25)
     
     response=urllib.urlopen("http://thecrix.de/data/crix_hf.json")
     crix_data=json.loads(response.read())
@@ -30,7 +30,7 @@ def crix_index(client):
     ax1.set_ylabel("CRIX [Intraday]",fontsize=20)
     axc.get_yaxis().set_label_coords(1.06,0.5) 
     axc.set_ylabel("BTCUSDT M5",fontsize=20)
-    ax1.set_title('The CRypto IndeX (CRIX) provides insight about the current and past movement of the cryptocurrencies market\nThe intraday chart depicts past 24h evolution of the CRIX, updated every 5mins, with current value is '+"{:.2f}".format(crix_value[-1])+"\nDisclamer: The CRIX is quite outdated in comparison to the Bletchley index, however still might be useful",fontsize=20,y=1.03,loc='left')
+    ax1.set_title('The CRIX index provides insight about the current and past movement of the cryptocurrencies market.\nThe intraday chart depicts past 24h evolution of the CRIX, updated every 5mins.\nThe Bletchley 10 index is a market capitalization weighted index composed of 10 of the most valuable digital assets by market capitalization.\nDisclamer: The CRIX is quite outdated in comparison to the Bletchley index.',fontsize=17,y=1.03,loc='left')
     
     response=urllib.urlopen("http://thecrix.de/data/crix.json")
     crix_data=json.loads(response.read())
@@ -53,6 +53,15 @@ def crix_index(client):
     ax3.get_yaxis().set_label_coords(-0.06,0.5) 
     ax3.set_ylabel("CRIX [Past month]",fontsize=20)
     
+    cr=csv.reader(urllib2.urlopen('https://www.bletchleyindexes.com/bletchley_ten.csv'))
+    ib=[]
+    for row in cr:
+        try:
+            ib.append(float(row[3]))
+        except Exception:
+            pass
+    ib=list(reversed(ib[:90]))
+    
     ax4.plot(crix_value[-90:],color='b',linewidth=2.5,linestyle='-')
     ax4.yaxis.grid(True)
     for tic in ax4.xaxis.get_major_ticks():
@@ -62,6 +71,15 @@ def crix_index(client):
     ax4.get_yaxis().set_label_coords(-0.06,0.5) 
     ax4.set_ylabel("CRIX [Past 3 months]",fontsize=20)
     
+    ax5.plot(ib,color='b',linewidth=2.5,linestyle='-')
+    ax5.set_xticks([])
+    for tic in ax5.xaxis.get_major_ticks():
+        tic.tick1On = tic.tick2On = False
+        tic.label1On = tic.label2On = False
+    ax5.yaxis.grid(True)
+    ax5.get_yaxis().set_label_coords(-0.06,0.5) 
+    ax5.set_ylabel("Bletchley 10 [Past 3 months]",fontsize=20)
+    
     f.tight_layout()
-    plt.savefig('crix.png',bbox_inches='tight')
+    plt.savefig('indexes.png',bbox_inches='tight')
 
