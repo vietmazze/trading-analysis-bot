@@ -4,3 +4,5 @@ numpy
 datetime
 matplotlib
 psycopg2
+csv
+urllib2
