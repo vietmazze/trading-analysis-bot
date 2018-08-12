@@ -63,8 +63,7 @@ python bot.py
 ## Deployment on Heroku platform
 
 ```
-heroku create --region eu vozbot 
-heroku buildpacks:add --index 1 heroku/python
+heroku create trading-analysis-bot --buildpack heroku/python
 heroku buildpacks:add --index 2 https://github.com/numrut/heroku-buildpack-python-talib
 heroku config:set TELEGRAM_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 heroku config:set SECRET_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
