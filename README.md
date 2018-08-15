@@ -139,6 +139,26 @@ Misc
 - developer score: 63.61
 ```
 
+### General information
+```
+/t arn 1
+```
+```
+#ARNBTC: 0.0000383
+From 2018-08-15 20:53:49 to 2018-08-15 22:50:31 (UTC)
+~ 0$: Buy 4 vs Sell 113
+~ 1-10$: Buy 15 vs Sell 5
+> 100$: Buy 99 vs Sell 69
+> 200$: Buy 64 vs Sell 26
+> 500$: Buy 8 vs Sell 1
+> 1,000$: Buy 0 vs Sell 0
+> 2,000$: Buy 0 vs Sell 0
+> 5,000$: Buy 0 vs Sell 0
+> 10,000$: Buy 0 vs Sell 0
+Total: Buy 216 (30,082$) vs Sell 284 (17,488$)
+```
+<img src="img/t_arn.png" width="700">
+
 ### Order flow trading
 ```
 /a wpr 2500
