@@ -157,7 +157,7 @@ From 2018-08-15 20:53:49 to 2018-08-15 22:50:31 (UTC)
 > 10,000$: Buy 0 vs Sell 0
 Total: Buy 216 (30,082$) vs Sell 284 (17,488$)
 ```
-<img src="img/t_arn.png" width="700">
+<img src="img/t_arn_1.png" width="700">
 
 ### Order flow trading
 ```
