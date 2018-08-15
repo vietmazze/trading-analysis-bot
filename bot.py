@@ -111,8 +111,8 @@ def t(bot,update,args):
     for coinName in coin_list:
         market=infolib.getMarket(coinName)
         msg=tradelib.trade_analysis_500(client,market,opt)
+        update.message.reply_text(msg,parse_mode=ParseMode.MARKDOWN)
         if opt==1:
-            update.message.reply_text(msg,parse_mode=ParseMode.MARKDOWN)
             bot.send_photo(chat_id=update.message.chat_id, photo=open(str(market)+'.png', 'rb'))
         if str(update.message.from_user.username)!=ADMIN_USERNAME:
             bot.sendMessage(ADMIN_ID,'chat_id: '+str(update.message.chat_id)+' username: @'+str(update.message.from_user.username)+' market: /'+str(market))
