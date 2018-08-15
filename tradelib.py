@@ -24,8 +24,20 @@ def volume_analysis(client,market,num_hours):
         unit_volumes.append(unit_volume)
     index_max=unit_volumes.index(max(unit_volumes))
     return unit_closes,unit_volumes,index_max
+    
+def getOrderBook(client,market):
+    orders=client.get_order_book(symbol=market)
+    bids=orders['bids']
+    asks=orders['asks']
+    bid_prices=[float(bid[0]) for bid in bids]
+    bid_qties=[float(bid[1]) for bid in bids]
+    ask_prices=[float(ask[0]) for ask in asks]
+    ask_qties=[float(ask[1]) for ask in asks] 
+    i1=bid_qties.index(max(bid_qties))
+    i2=ask_qties.index(max(ask_qties))
+    return bid_prices,ask_prices,bid_qties,ask_qties,i1,i2
 
-def trade_analysis(client,market,numTrades):
+def trade_analysis_h1(client,market,numTrades):
     toId=client.get_historical_trades(symbol=market,limit=1)[0]['id']
     listId=numpy.arange(toId-numTrades+1,toId-10,500)
     trades=[]
@@ -47,20 +59,8 @@ def trade_analysis(client,market,numTrades):
     total_coin=[x+y for x,y in zip(total_coin_buy,total_coin_sell)]
     return total_coin_buy,total_coin_sell,total_coin
 
-def getOrderBook(client,market):
-    orders=client.get_order_book(symbol=market)
-    bids=orders['bids']
-    asks=orders['asks']
-    bid_prices=[float(bid[0]) for bid in bids]
-    bid_qties=[float(bid[1]) for bid in bids]
-    ask_prices=[float(ask[0]) for ask in asks]
-    ask_qties=[float(ask[1]) for ask in asks] 
-    i1=bid_qties.index(max(bid_qties))
-    i2=ask_qties.index(max(ask_qties))
-    return bid_prices,ask_prices,bid_qties,ask_qties,i1,i2
-
-def trade_msg(client,market,numTrades):
-    total_coin_buy,total_coin_sell,total_coin=trade_analysis(client,market,numTrades)
+def trade_msg_h1(client,market,numTrades):
+    total_coin_buy,total_coin_sell,total_coin=trade_analysis_h1(client,market,numTrades)
     unit_closes,unit_volumes,index_max=volume_analysis(client,market,len(total_coin))
     bid_prices,ask_prices,bid_qties,ask_qties,i1,i2=getOrderBook(client,market)  
     f,(ax1,ax2)=plt.subplots(2,1,gridspec_kw={'height_ratios':[1,1]})

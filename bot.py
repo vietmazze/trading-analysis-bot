@@ -110,7 +110,7 @@ def a(bot,update,args):
         coin_list=args
     for coinName in coin_list:
         market=infolib.getMarket(coinName)
-        tradelib.trade_msg(client,market,num_trades)
+        tradelib.trade_msg_h1(client,market,num_trades)
         bot.send_photo(chat_id=update.message.chat_id, photo=open(str(market)+'.png', 'rb'))
         tradelib.trade_msg_m30(client,market,num_trades)
         bot.send_photo(chat_id=update.message.chat_id, photo=open(str(market)+'.png', 'rb'))
