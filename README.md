@@ -139,7 +139,7 @@ Misc
 - developer score: 63.61
 ```
 
-### General information
+### Recent trades
 ```
 /t arn 1
 ```
