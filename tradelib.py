@@ -164,3 +164,73 @@ def trade_msg_m30(client,market,numTrades):
     ax2.yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
     f.tight_layout()
     plt.savefig(market+'.png',bbox_inches='tight')
+    
+def trade_analysis_500(client,market,opt):
+    trades=client.get_historical_trades(symbol=market)
+    market_price=trades[-1]['price']
+    market_price=('%.8f' % float(market_price)).rstrip('0').rstrip('.')
+    buy_trades=[trade for trade in trades if trade['isBuyerMaker']==False]
+    sell_trades=[trade for trade in trades if trade['isBuyerMaker']==True]
+    buy_prices=[float(trade['price']) for trade in buy_trades]
+    buy_qties=[float(trade['qty']) for trade in buy_trades]
+    buy_values=numpy.array([price*qty for price,qty in zip(buy_prices,buy_qties)])
+    sell_prices=[float(trade['price']) for trade in sell_trades]
+    sell_qties=[float(trade['qty']) for trade in sell_trades]
+    sell_values=numpy.array([price*qty for price,qty in zip(sell_prices,sell_qties)])
+    if market[-3:]=='BTC':
+        n_bot_buy=len(numpy.where(buy_values<0.001)[0])
+        n_bot_sell=len(numpy.where(sell_values<0.001)[0])
+    else:
+        n_bot_buy=-1
+        n_bot_sell=-1
+    if market[-3:]=='BTC':
+        btcPrice=float(client.get_recent_trades(symbol='BTCUSDT')[-1]['price'])
+        buy_values=buy_values*btcPrice
+        sell_values=sell_values*btcPrice
+    total_buy=int(sum(buy_values))
+    total_sell=int(sum(sell_values))
+    n_buy=len(buy_values)
+    n_sell=len(sell_values)
+    sig_buy=[]
+    sig_sell=[]
+    thresholds=[100,200,500,1000,2000,5000,10000]
+    for threshold in thresholds:
+        sig_buy.append(len(numpy.where(buy_values>threshold)[0]))
+        sig_sell.append(len(numpy.where(sell_values>threshold)[0]))
+    n_buy_small=len(numpy.where(buy_values<10)[0])
+    n_sell_small=len(numpy.where(sell_values<10)[0])
+    time_duration='From '+str(datetime.fromtimestamp(int(trades[0]['time'])/1000))+' to '+str(datetime.fromtimestamp(int(trades[-1]['time'])/1000))+' (UTC)'
+    msg='#'+market+': '+market_price
+    msg='\n'+time_duration
+    msg=msg+'\n~ 0$: Buy '+str(n_bot_buy)+' vs Sell '+str(n_bot_sell)
+    msg=msg+'\n~ 1-10$: Buy '+str(n_buy_small-n_bot_buy)+' vs Sell '+str(n_sell_small-n_bot_sell)
+    for i in numpy.arange(0,len(thresholds),1):
+        msg=msg+'\n> '+"{:,}".format(thresholds[i])+'$: Buy '+str(sig_buy[i])+' vs Sell '+str(sig_sell[i])
+    msg=msg+'\nTotal: Buy '+str(n_buy)+' ('+"{:,}".format(total_buy)+'$) vs Sell '+str(n_sell)+' ('+"{:,}".format(total_sell)+'$)'
+    trade_prices=[float(trade['price']) for trade in trades]
+    trade_orders=numpy.arange(0,500)
+    buy_orders=[i for i in trade_orders if trades[i]['isBuyerMaker']==False]
+    sell_orders=[i for i in trade_orders if trades[i]['isBuyerMaker']==True]
+    if opt==1:
+        f,ax=plt.subplots(1,1)
+        f.set_size_inches(20,5) 
+        ax.bar(buy_orders,buy_qties,color='g',edgecolor='g',width=0.9,align='center',alpha=0.75)
+        ax.bar(sell_orders,sell_qties,color='r',edgecolor='r',width=0.9,align='center',alpha=0.75)
+        ax.get_yaxis().set_label_coords(-0.075,0.5) 
+        ax.set_ylabel("Trade volumes",fontsize=20)
+        axt=ax.twinx()
+        axt.step(trade_orders,trade_prices,color='b',linewidth=2,linestyle='-')
+        axt.set_ylabel("Trade prices",fontsize=20)
+        axt.get_yaxis().set_label_coords(1.075,0.5) 
+        ax.set_xlim(0,500)
+        ax.yaxis.grid(True)
+        for tic in ax.xaxis.get_major_ticks():
+            tic.tick1On = tic.tick2On = False
+            tic.label1On = tic.label2On = False
+        ax.yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
+        axt.yaxis.set_major_formatter(FormatStrFormatter('%.8f'))
+        ax.set_title(str(market),fontsize=20)
+        f.tight_layout()
+        plt.savefig(market+'.png',bbox_inches='tight')
+    return msg
+    
