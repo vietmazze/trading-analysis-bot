@@ -7,7 +7,7 @@ plt.style.use('classic')
 
 def crix_index():
     f,ax=plt.subplots(3,1,gridspec_kw={'height_ratios':[1,1,1]})
-    f.set_size_inches(15,20)
+    f.set_size_inches(20,15)
     ax[0].set_title('CRIX',fontsize=30,y=1.03)
     filename=['crix_hf','crix','crix']
     lengthname=[0,-30,-90]
@@ -29,7 +29,7 @@ def crix_index():
     
 def bletchley_index():
     f,ax=plt.subplots(3,1,gridspec_kw={'height_ratios':[1,1,1]})
-    f.set_size_inches(15,20)
+    f.set_size_inches(20,15)
     ax[0].set_title('Bletchley indexes [Past 3 months]',fontsize=30,y=1.03)
     filename=['bletchley_ten','bletchley_twenty','bletchley_forty']
     rank=[10,20,40]
