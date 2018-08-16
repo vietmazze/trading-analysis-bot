@@ -82,31 +82,31 @@ heroku ps:scale bot=1
 
 ### General information
 ```
-/i hot
+/i zrx
 ```
 ```
-Symbol: HOT Name: Holo
-Community
-- reddit subscribers: 2471
-- reddit accounts active 48h: 364
-- twitter followers: 7331
-- facebook likes: 2259
-- reddit average comments 48h: 10.227
-- reddit average posts 48h: 0.5
-Developer
-- stars: 603
-- subscribers: 132
-- pull requests merged: 134
-- pull request contributors: 17
-- commit count 4 weeks: 1
-- total issues: 580
-- closed issues: 337
-- forks: 92
+Symbol: ZRX Name: 0x
+Community (Reddit, Facebook, Twitter)
+- Reddit Subscribers: 13784
+- Reddit Average Comments 48H: 2.5
+- Reddit Average Posts 48H: 0.417
+- Facebook Likes: 1240
+- Reddit Accounts Active 48H: 2898
+- Twitter Followers: 134515
+Developer (Github)
+- Subscribers: 86
+- Pull Requests Merged: 567
+- Closed Issues: 114
+- Forks: 199
+- Commit Count 4 Weeks: 519
+- Total Issues: 146
+- Stars: 785
+- Pull Request Contributors: 33
 ```
 
 ### Recent trades
 ```
-/t arn 1
+/t arn
 ```
 ```
 #ARNBTC: 0.0000383
