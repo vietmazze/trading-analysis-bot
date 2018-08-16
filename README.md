@@ -18,7 +18,7 @@
 
 - Technical indicators: RSI, MA, BB, etc
 - Order flow: buy vs sell, volume profile, limit orderbook
-- Cryptoasset indexes: Bletchley, Bitwise, CRIX
+- Cryptoasset indexes: Bletchley, Bitwise, CRIX, Fear vs. Greed
 - Cryptoasset metrics: TX vol, NVT ratio, num active addresses, num transactions
 - Social sentiment and developer activities: Twitter, Reddit, Facebook, GitHub
 - Trading sessions
