@@ -200,7 +200,7 @@ def trade_analysis_500(client,market,opt):
     n_buy_small=len(numpy.where(buy_values<10)[0])
     n_sell_small=len(numpy.where(sell_values<10)[0])
     time_duration='From '+str(datetime.fromtimestamp(int(trades[0]['time'])/1000))+' to '+str(datetime.fromtimestamp(int(trades[-1]['time'])/1000))+' (UTC)'
-    msg='#'+market+': '+market_price+'\n*Recent trades statistics* (500)\n'+time_duration
+    msg='#'+market+': '+market_price+'\n*Transactions statistics* (Last 500 trades)\n'+time_duration
     msg=msg+'\n~ 0$: Buy '+str(n_bot_buy)+' vs Sell '+str(n_bot_sell)
     msg=msg+'\n~ 1-10$: Buy '+str(n_buy_small-n_bot_buy)+' vs Sell '+str(n_sell_small-n_bot_sell)
     for i in numpy.arange(0,len(thresholds),1):
