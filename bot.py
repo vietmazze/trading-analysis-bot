@@ -135,7 +135,6 @@ def main():
     dp.add_handler(CommandHandler("i",i,pass_args=True))
     dp.add_handler(CommandHandler("m",m))
     dp.add_handler(CommandHandler("h",h))
-    dp.add_handler(CommandHandler("admin",admin,pass_args=True))
     dp.add_handler(MessageHandler(Filters.text,send_msg))
     dp.add_handler(MessageHandler(Filters.command,send_msg))
     updater.start_polling()
