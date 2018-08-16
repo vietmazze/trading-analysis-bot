@@ -87,21 +87,21 @@ heroku ps:scale bot=1
 ```
 Symbol: ZRX Name: 0x
 Community (Reddit, Facebook, Twitter)
-- Reddit Subscribers: 13784
-- Reddit Average Comments 48H: 2.5
-- Reddit Average Posts 48H: 0.417
-- Facebook Likes: 1240
-- Reddit Accounts Active 48H: 2898
-- Twitter Followers: 134515
+- Facebook likes: 1240
+- Reddit average comments 48h: 2.5
+- Reddit accounts active 48h: 2898
+- Twitter followers: 134515
+- Reddit subscribers: 13784
+- Reddit average posts 48h: 0.417
 Developer (Github)
-- Subscribers: 86
-- Pull Requests Merged: 567
-- Closed Issues: 114
 - Forks: 199
-- Commit Count 4 Weeks: 519
-- Total Issues: 146
+- Commit count 4 weeks: 519
+- Closed issues: 114
+- Pull requests merged: 567
+- Subscribers: 86
 - Stars: 785
-- Pull Request Contributors: 33
+- Pull request contributors: 33
+- Total issues: 146
 ```
 
 ### Recent trades
@@ -110,7 +110,7 @@ Developer (Github)
 ```
 ```
 #ARNBTC: 0.0000383
-Recent trades statistics (500)
+Transactions statistics (Last 500 trades)
 From 2018-08-15 20:53:49 to 2018-08-15 22:50:31 (UTC)
 ~ 0$: Buy 4 vs Sell 113
 ~ 1-10$: Buy 15 vs Sell 5
