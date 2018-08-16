@@ -110,6 +110,7 @@ Developer (Github)
 ```
 ```
 #ARNBTC: 0.0000383
+Recent trades statistics (500)
 From 2018-08-15 20:53:49 to 2018-08-15 22:50:31 (UTC)
 ~ 0$: Buy 4 vs Sell 113
 ~ 1-10$: Buy 15 vs Sell 5

@@ -23,11 +23,11 @@ def getInfo(coin_name):
         msg=msg+"*Community* (Reddit, Facebook, Twitter)"+"\n"
         community_data=response['community_data']
         for key, value in community_data.iteritems():
-            msg=msg+"- "+key.title().replace('_', ' ')+": "+str(value)+"\n"
+            msg=msg+"- "+key.replace('_', ' ').capitalize()+": "+str(value)+"\n"
         msg=msg+"*Developer* (Github)"+"\n"
         developer_data=response['developer_data']
         for key, value in developer_data.iteritems():
-            msg=msg+"- "+key.title().replace('_', ' ')+": "+str(value)+"\n"
+            msg=msg+"- "+key.replace('_', ' ').capitalize()+": "+str(value)+"\n"
 #        msg=msg+"*Market*"+"\n"
 #        market_data=response['market_data']
 #        for key, value in market_data.iteritems():
