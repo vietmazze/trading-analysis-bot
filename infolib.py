@@ -28,23 +28,23 @@ def getInfo(coin_name):
         developer_data=response['developer_data']
         for key, value in developer_data.iteritems():
             msg=msg+"- "+key.replace('_', ' ')+": "+str(value)+"\n"
-        msg=msg+"*Market*"+"\n"
-        market_data=response['market_data']
-        for key, value in market_data.iteritems():
-            try:
-                msg=msg+"- "+key.replace('_', ' ')+": "+"{:.8f}".format(float(value))+"\n"
-            except Exception:
-                pass
-            try:
-                msg=msg+"- "+key.replace('_', ' ')+": "+"{:.8f}".format(float(value['btc']))+" btc"+" {:.8f}".format(float(value['usd']))+" usd"+"\n"
-            except Exception:
-                pass
-        msg=msg+"*Misc*"+"\n"
-        for key, value in response.iteritems():
-            try:
-                msg=msg+"- "+key.replace('_', ' ')+": "+"{:.2f}".format(float(value))+"\n"
-            except Exception:
-                pass
+#        msg=msg+"*Market*"+"\n"
+#        market_data=response['market_data']
+#        for key, value in market_data.iteritems():
+#            try:
+#                msg=msg+"- "+key.replace('_', ' ')+": "+"{:.8f}".format(float(value))+"\n"
+#            except Exception:
+#                pass
+#            try:
+#                msg=msg+"- "+key.replace('_', ' ')+": "+"{:.8f}".format(float(value['btc']))+" btc"+" {:.8f}".format(float(value['usd']))+" usd"+"\n"
+#            except Exception:
+#                pass
+#        msg=msg+"*Misc*"+"\n"
+#        for key, value in response.iteritems():
+#            try:
+#                msg=msg+"- "+key.replace('_', ' ')+": "+"{:.2f}".format(float(value))+"\n"
+#            except Exception:
+#                pass
         msg=str(msg)
     return msg
 
