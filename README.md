@@ -16,14 +16,14 @@
 
 ## Features
 
-- Standard technical indicators: Pivot points, RSI, MA, etc
-- Order flow trading: Volume profile, orderbook
-- Market indexes and rankings: CRIX, Bletchley index, NVT ratio, etc
-- Social sentiment: Twitter, Reddit, Facebook
-- Developer activities: GitHub
+- Technical indicators: RSI, MA, BB, etc
+- Order flow: buy vs sell, volume profile, limit orderbook
+- Cryptoasset indexes: Bletchley, Bitwise, CRIX
+- Cryptoasset metrics: TX vol, NVT ratio, num active addresses, num transactions
+- Social sentiment and developer activities: Twitter, Reddit, Facebook, GitHub
 - Trading sessions
 - Customized notifications
-- Admin and user management
+- Administrator and user management
 
 ## Run on local machine
 
@@ -104,7 +104,7 @@ Developer (Github)
 - Total issues: 146
 ```
 
-### Recent trades
+### Transactions statistics
 ```
 /t arn
 ```
@@ -125,14 +125,14 @@ Total: Buy 216 (30,082$) vs Sell 284 (17,488$)
 ```
 <img src="img/t_arn_1.png" width="700">
 
-### Order flow trading
+### Order flow
 ```
 /a wpr 2500
 ```
 <img src="img/a_wpr_2500_h1.png" width="700">
 <img src="img/a_wpr_2500_m30.png" width="700">
 
-### Market indexes
+### Cryptoasset indexes
 ```
 /m
 ```

@@ -123,7 +123,7 @@ def a(bot,update,args):
         num_trades=int(args[-1])
         coin_list=args[:-1]
     else:
-        num_trades=2500
+        num_trades=5000
         coin_list=args
     for coinName in coin_list:
         market=infolib.getMarket(coinName)
@@ -144,8 +144,10 @@ def i(bot,update,args):
         
 def m(bot,update):
     bot.send_chat_action(chat_id=update.message.chat_id,action=telegram.ChatAction.TYPING)
-    indexlib.market_indexes(client)
-    bot.send_photo(chat_id=update.message.chat_id, photo=open('indexes.png', 'rb'))
+    indexlib.bletchley_index()
+    bot.send_photo(chat_id=update.message.chat_id, photo=open('bletchley_index.png', 'rb'))
+    indexlib.crix_index()
+    bot.send_photo(chat_id=update.message.chat_id, photo=open('crix_index.png', 'rb'))
     if str(update.message.from_user.username)!=ADMIN_USERNAME:
         bot.sendMessage(ADMIN_ID,'chat_id: '+str(update.message.chat_id)+' username: @'+str(update.message.from_user.username)+' cmd: indexes')
             
