@@ -136,7 +136,8 @@ Total: Buy 216 (30,082$) vs Sell 284 (17,488$)
 ```
 /m
 ```
-<img src="img/m.png" width="700">
+<img src="img/bletchley_index.jpg" width="700">
+<img src="img/crix_index.jpg" width="700">
 
 ### Trading sessions
 ```
