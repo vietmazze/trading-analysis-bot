@@ -62,13 +62,13 @@ def trade_analysis_h1(client,market,numTrades):
 def trade_msg_h1(client,market,numTrades):
     total_coin_buy,total_coin_sell,total_coin=trade_analysis_h1(client,market,numTrades)
     unit_closes,unit_volumes,index_max=volume_analysis(client,market,len(total_coin))
-    bid_prices,ask_prices,bid_qties,ask_qties,i1,i2=getOrderBook(client,market)  
+#    bid_prices,ask_prices,bid_qties,ask_qties,i1,i2=getOrderBook(client,market)  
     f,(ax1,ax2)=plt.subplots(2,1,gridspec_kw={'height_ratios':[1,1]})
     f.set_size_inches(20,15)
     ax1p=ax1.twiny()
     ax1p.barh(unit_closes,unit_volumes,color='gray',edgecolor='w',height=unit_closes[1]-unit_closes[0],align='center',alpha=0.35)
-    ax1p.step(bid_qties,bid_prices,'k',linewidth=1.25,alpha=0.5)
-    ax1p.step(ask_qties,ask_prices,'r',linewidth=1.25,alpha=0.5)
+#    ax1p.step(bid_qties,bid_prices,'k',linewidth=1.25,alpha=0.5)
+#    ax1p.step(ask_qties,ask_prices,'r',linewidth=1.25,alpha=0.5)
     ax1p.set_xticks([])
     for tic in ax1p.xaxis.get_major_ticks():
         tic.tick1On = tic.tick2On = False
