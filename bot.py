@@ -152,7 +152,7 @@ def m(bot,update):
     bot.send_photo(chat_id=update.message.chat_id, photo=open('bletchley_index.png', 'rb'))
     indexlib.crix_index()
     bot.send_photo(chat_id=update.message.chat_id, photo=open('crix_index.png', 'rb'))
-    bot.send_message(chat_id=update.message.chat_id,text='<img src="https://alternative.me/crypto/fear-and-greed-index.png" alt="Latest Crypto Fear & Greed Index" />',parse_mode=ParseMode.HTML)
+    bot.send_message(chat_id=update.message.chat_id,text='<img src="https://alternative.me/crypto/fear-and-greed-index.png"/>',parse_mode=ParseMode.HTML)
     if str(update.message.from_user.username)!=ADMIN_USERNAME:
         bot.sendMessage(ADMIN_ID,'chat_id: '+str(update.message.chat_id)+' username: @'+str(update.message.from_user.username)+' cmd: indexes')
             
