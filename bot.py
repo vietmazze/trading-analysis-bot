@@ -95,10 +95,14 @@ def admin(bot,update,args):
 def send_msg(bot,update):
     if str(update.message.from_user.username)==ADMIN_USERNAME:
         msg=update.message.text
-        if msg[0:10]=='/send_msg ':
-            msg=msg[10:]
+        if msg[0:19]=='/send_msg markdown ':
+            msg=msg[19:]
             for id_item in id_list:
                 bot.send_message(chat_id=id_item,text=msg,parse_mode=ParseMode.MARKDOWN)
+        if msg[0:15]=='/send_msg html ':
+            msg=msg[15:]
+            for id_item in id_list:
+                bot.send_message(chat_id=id_item,text=msg,parse_mode=ParseMode.HTML)
                 
 def t(bot,update,args):
     bot.send_chat_action(chat_id=update.message.chat_id,action=telegram.ChatAction.TYPING)
