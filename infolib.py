@@ -20,11 +20,11 @@ def getInfo(coin_name):
     for coin_id in coin_id_list:
         response=(requests.get("https://api.coingecko.com/api/v3/coins/"+coin_id)).json()
         msg=msg+"Symbol: "+str(coin_name.upper())+" Name: "+str(response['name'])+"\n"
-        msg=msg+"*Community*"+"\n"
+        msg=msg+"*Community* (Reddit, Facebook, Twitter)"+"\n"
         community_data=response['community_data']
         for key, value in community_data.iteritems():
             msg=msg+"- "+key.replace('_', ' ')+": "+str(value)+"\n"
-        msg=msg+"*Developer*"+"\n"
+        msg=msg+"*Developer* (Github)"+"\n"
         developer_data=response['developer_data']
         for key, value in developer_data.iteritems():
             msg=msg+"- "+key.replace('_', ' ')+": "+str(value)+"\n"
