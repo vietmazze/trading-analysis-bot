@@ -106,24 +106,24 @@ Developer (Github)
 
 ### Transactions statistics
 ```
-/t arn
+/t zrx 1
 ```
 ```
-#ARNBTC: 0.0000383
+#ZRXBTC: 0.0001138
 Transactions statistics (Last 500 trades)
-From 2018-08-15 20:53:49 to 2018-08-15 22:50:31 (UTC)
-~ 0$: Buy 4 vs Sell 113
-~ 1-10$: Buy 15 vs Sell 5
-> 100$: Buy 99 vs Sell 69
-> 200$: Buy 64 vs Sell 26
-> 500$: Buy 8 vs Sell 1
-> 1,000$: Buy 0 vs Sell 0
-> 2,000$: Buy 0 vs Sell 0
-> 5,000$: Buy 0 vs Sell 0
-> 10,000$: Buy 0 vs Sell 0
-Total: Buy 216 (30,082$) vs Sell 284 (17,488$)
+From 2018-08-17 00:15:34 to 2018-08-17 00:40:52 (UTC)
+~ 0$: Buy 35 vs Sell 10
+~ 1-10$: Buy 22 vs Sell 22
+> 100$: Buy 105 vs Sell 122
+> 200$: Buy 77 vs Sell 79
+> 500$: Buy 32 vs Sell 25
+> 1,000$: Buy 13 vs Sell 15
+> 2,000$: Buy 9 vs Sell 11
+> 5,000$: Buy 1 vs Sell 6
+> 10,000$: Buy 1 vs Sell 1
+Total: Buy 261 (85,760$) vs Sell 239 (121,247$)
 ```
-<img src="img/t_arn_1.png" width="700">
+<img src="img/t_zrx_1.png" width="700">
 
 ### Order flow
 ```
