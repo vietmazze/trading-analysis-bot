@@ -167,6 +167,7 @@ def trade_msg_m30(client,market,numTrades):
     
 def trade_analysis_500(client,market,opt):
     trades=client.get_historical_trades(symbol=market)
+    minute_counters=[datetime.fromtimestamp(int(trade['time']/1000)).minute for trade in trades]
     market_price=trades[-1]['price']
     market_price=('%.8f' % float(market_price)).rstrip('0').rstrip('.')
     buy_trades=[trade for trade in trades if trade['isBuyerMaker']==False]
@@ -213,14 +214,17 @@ def trade_analysis_500(client,market,opt):
     if opt==1:
         f,ax=plt.subplots(1,1)
         f.set_size_inches(20,5) 
-        ax.bar(buy_orders,buy_qties,color='g',edgecolor='g',width=0.9,align='center',alpha=0.75)
-        ax.bar(sell_orders,sell_qties,color='r',edgecolor='r',width=0.9,align='center',alpha=0.75)
+        ax.bar(buy_orders,buy_qties,color='g',edgecolor='g',width=0.9,align='center',alpha=0.75,label='Buy quantities')
+        ax.bar(sell_orders,sell_qties,color='r',edgecolor='r',width=0.9,align='center',alpha=0.75,label='Sell quantities')
         ax.get_yaxis().set_label_coords(-0.075,0.5) 
         ax.set_ylabel("Trade volumes",fontsize=20)
         axt=ax.twinx()
-        axt.step(trade_orders,trade_prices,color='b',linewidth=2,linestyle='-')
+        axt.step(trade_orders,trade_prices,color='b',linewidth=2,linestyle='-',label='Trade prices')
         axt.set_ylabel("Trade prices",fontsize=20)
-        axt.get_yaxis().set_label_coords(1.075,0.5) 
+        axt.get_yaxis().set_label_coords(1.075,0.5)
+        axs=ax.twinx()
+        axs.step(trade_orders,minute_counters,color='violet',linewidth=2,alpha=.5,linestyle='-',label='Time minute counters')
+        axs.set_yticks([])
         ax.set_xlim(0,500)
         ax.yaxis.grid(True)
         for tic in ax.xaxis.get_major_ticks():
@@ -228,7 +232,10 @@ def trade_analysis_500(client,market,opt):
             tic.label1On = tic.label2On = False
         ax.yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
         axt.yaxis.set_major_formatter(FormatStrFormatter('%.8f'))
-        ax.set_title(str(market),fontsize=20)
+        ax.set_title(str(market),fontsize=20,loc='left',y=1.03)
+        ax.legend(loc='upper left', bbox_to_anchor=(0.3, 1.15), shadow=True, fontsize='x-large', ncol=2)
+        axt.legend(loc='upper left', bbox_to_anchor=(0.634, 1.15), shadow=True, fontsize='x-large', ncol=2)
+        axs.legend(loc='upper left', bbox_to_anchor=(0.783, 1.15), shadow=True, fontsize='x-large', ncol=1)
         f.tight_layout()
         plt.savefig(market+'.png',bbox_inches='tight')
     return msg
