@@ -153,6 +153,6 @@ MIT
 - Star and/or fork this repository
 - Trade on Binance: https://www.binance.com/?ref=13339920
 - Trade on Huobi: https://www.huobi.br.com/en-us/topic/invited/?invite_code=x93k3
-- BTC: 1DrEMhMP5rAytKyKXRzc6szTcUX8bZzZgq
-- ETH: 0x3915D216f9Fc6ec08f956555e84385513dE5f214
-- LTC: LX8GJkGTZFmAA7puCyVp48333iQdCN6vca
+- BTC tipjar: 1DrEMhMP5rAytKyKXRzc6szTcUX8bZzZgq
+- ETH tipjar: 0x3915D216f9Fc6ec08f956555e84385513dE5f214
+- LTC tipjar: LX8GJkGTZFmAA7puCyVp48333iQdCN6vca
