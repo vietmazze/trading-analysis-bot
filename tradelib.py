@@ -26,6 +26,8 @@ def volume_analysis(client,market,num_hours):
     return unit_closes,unit_volumes,index_max
 
 def volume_profile(client,market):
+    coinInfo=client.get_symbol_info(market)['filters']
+    priceUnit=float(coinInfo[0]['tickSize'])
     units=['5m','15m','30m','1h','4h']
     intervals=['1 day ago','1 week ago','1 month ago','3 months ago','1 year ago']
     infos=['1D','1W','1M','3M','1Y']
@@ -46,7 +48,7 @@ def volume_profile(client,market):
                 unit_volume=sum([volumes[j] for j in numpy.arange(0,len(closes)) if close_range[i][0]<=closes[j]<=close_range[i][1]])
                 unit_volumes.append(unit_volume)
             index_max=unit_volumes.index(max(unit_volumes))
-            msg=msg+" "+infos[k]+": "+('%.8f' % float(unit_closes[index_max])).rstrip('0').rstrip('.')
+            msg=msg+" "+infos[k]+": "+('%.8f' % float(int(numpy.floor(unit_closes[index_max]/priceUnit))*priceUnit)).rstrip('0').rstrip('.')
         except Exception:
             pass
     return msg
