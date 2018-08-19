@@ -69,7 +69,7 @@ def a(bot,update,args):
         num_trades=int(args[-1])
         coin_list=args[:-1]
     else:
-        num_trades=10000
+        num_trades=5000
         coin_list=args
     for coinName in coin_list:
         market=infolib.getMarket(coinName)
