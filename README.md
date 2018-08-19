@@ -127,10 +127,10 @@ Total: Buy 261 (85,760$) vs Sell 239 (121,247$)
 
 ### Order flow
 ```
-/a wpr 2500
+/a zrx
 ```
-<img src="img/a_wpr_2500_h1.png" width="700">
-<img src="img/a_wpr_2500_m30.png" width="700">
+<img src="img/a_zrx_1h.jpg" width="700">
+<img src="img/a_zrx_30m.jpg" width="700">
 
 ### Cryptoasset indexes
 ```
