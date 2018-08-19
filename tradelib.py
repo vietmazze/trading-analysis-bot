@@ -24,6 +24,32 @@ def volume_analysis(client,market,num_hours):
         unit_volumes.append(unit_volume)
     index_max=unit_volumes.index(max(unit_volumes))
     return unit_closes,unit_volumes,index_max
+
+def volume_profile(client,market):
+    units=['5m','15m','30m','1h','4h']
+    intervals=['1 day ago','1 week ago','1 month ago','3 months ago','1 year ago']
+    infos=['1D','1W','1M','3M','1Y']
+    msg='Vol. profile:'
+    for k in range(len(units)):
+        try:
+            candles=numpy.array(client.get_historical_klines(market,units[k],intervals[k]),dtype='float')
+            closes=[candle[4] for candle in candles]
+            volumes=[candle[5] for candle in candles]
+            close_min=numpy.amin(closes)
+            close_max=numpy.amax(closes)
+            close_step=(close_max-close_min)/49
+            close_range=[[close_min+(i-1)*close_step,close_min+i*close_step] for i in numpy.arange(1,50)]
+            unit_volumes=[]
+            unit_closes=[]
+            for i in numpy.arange(0,48):
+                unit_closes.append(0.5*(close_range[i][0]+close_range[i][1]))
+                unit_volume=sum([volumes[j] for j in numpy.arange(0,len(closes)) if close_range[i][0]<=closes[j]<=close_range[i][1]])
+                unit_volumes.append(unit_volume)
+            index_max=unit_volumes.index(max(unit_volumes))
+            msg=msg+" "+infos[k]+": "+('%.8f' % float(unit_closes[index_max])).rstrip('0').rstrip('.')
+        except Exception:
+            pass
+    return msg
     
 def getOrderBook(client,market):
     orders=client.get_order_book(symbol=market)
@@ -62,13 +88,10 @@ def trade_analysis_h1(client,market,numTrades):
 def trade_msg_h1(client,market,numTrades):
     total_coin_buy,total_coin_sell,total_coin=trade_analysis_h1(client,market,numTrades)
     unit_closes,unit_volumes,index_max=volume_analysis(client,market,len(total_coin))
-#    bid_prices,ask_prices,bid_qties,ask_qties,i1,i2=getOrderBook(client,market)  
     f,(ax1,ax2)=plt.subplots(2,1,gridspec_kw={'height_ratios':[1,1]})
     f.set_size_inches(20,15)
     ax1p=ax1.twiny()
     ax1p.barh(unit_closes,unit_volumes,color='gray',edgecolor='w',height=unit_closes[1]-unit_closes[0],align='center',alpha=0.35)
-#    ax1p.step(bid_qties,bid_prices,'k',linewidth=1.25,alpha=0.5)
-#    ax1p.step(ask_qties,ask_prices,'r',linewidth=1.25,alpha=0.5)
     ax1p.set_xticks([])
     for tic in ax1p.xaxis.get_major_ticks():
         tic.tick1On = tic.tick2On = False
@@ -135,8 +158,16 @@ def trade_analysis_m30(client,market,numTrades):
 
 def trade_msg_m30(client,market,numTrades):     
     total_coin_buy,total_coin_sell,total_coin=trade_analysis_m30(client,market,numTrades)
+    bid_prices,ask_prices,bid_qties,ask_qties,i1,i2=getOrderBook(client,market)  
     f,(ax1,ax2)=plt.subplots(2,1,gridspec_kw={'height_ratios':[1,1]})
     f.set_size_inches(20,15)
+    ax1p=ax1.twiny()
+    ax1p.step(bid_qties,bid_prices,'k',linewidth=2.5,alpha=0.25)
+    ax1p.step(ask_qties,ask_prices,'r',linewidth=2.5,alpha=0.25)
+    ax1p.set_xticks([])
+    for tic in ax1p.xaxis.get_major_ticks():
+        tic.tick1On = tic.tick2On = False
+        tic.label1On = tic.label2On = False
     candles=numpy.array(client.get_historical_klines(market,'30m','1 month ago'),dtype='float')[-len(total_coin):]
     candlestick2_ohlc(ax1,candles[:,1],candles[:,2],candles[:,3],candles[:,4],width=0.6,alpha=1)
     ax1.yaxis.grid(True)
@@ -145,11 +176,11 @@ def trade_msg_m30(client,market,numTrades):
         tic.label1On = tic.label2On = False
     ax1.set_xticks([])
     ax1.set_xlim(.5,len(total_coin))
-    ax1.set_ylim(numpy.amin(candles[:,3]),numpy.amax(candles[:,2]))
     ax1.yaxis.set_major_formatter(FormatStrFormatter('%.8f'))
     ax1.get_yaxis().set_label_coords(-0.075,0.5) 
-    ax1.set_ylabel("Volume Profile versus Order Book",fontsize=20)
-    ax1.set_title('Exchange: Binance Market: '+market+' Time Frame: 30 [minute]'+'\nTotal Trades: '+"{:,}".format(numTrades)+' Total Buy Volume: '+"{:,}".format((sum(total_coin_buy)))+' Total Sell Volume: '+"{:,}".format((sum(total_coin_sell)))+"\nCopyright: @trading_analysis_bot",fontsize=25,y=1.03,loc='left')
+    ax1.set_ylabel("Order Book",fontsize=20)
+    msg=volume_profile(client,market)
+    ax1.set_title('Exchange: Binance Market: '+market+' Time Frame: 30 [minute]\n'+msg,fontsize=25,y=1.03,loc='left')
     candlestick2_ohlc(ax2,numpy.arange(0,len(total_coin)),total_coin,numpy.arange(0,len(total_coin)),total_coin,width=0.6,alpha=.35)
     candlestick2_ohlc(ax2,numpy.arange(0,len(total_coin_buy)),total_coin_buy,numpy.arange(0,len(total_coin_buy)),total_coin_buy,width=0.29,alpha=1,shift=-0.15)
     candlestick2_ohlc(ax2,total_coin_sell,total_coin_sell,numpy.arange(0,len(total_coin_sell)),numpy.arange(0,len(total_coin_sell)),width=0.29,alpha=1,shift=+0.15)
