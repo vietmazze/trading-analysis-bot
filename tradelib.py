@@ -108,7 +108,7 @@ def trade_msg_h1(client,market,numTrades):
     ax1.yaxis.set_major_formatter(FormatStrFormatter('%.8f'))
     ax1.get_yaxis().set_label_coords(-0.075,0.5) 
     ax1.set_ylabel("Volume Profile",fontsize=20)
-    ax1.set_title('Exchange: Binance Market: '+market+' Time Frame: 1 [hour]'+' Time Length: '+str(len(candles[:,1]))+' [hours]'+'\nTotal Trades: '+"{:,}".format(numTrades)+' Total Buy Volume: '+"{:,}".format((sum(total_coin_buy)))+' Total Sell Volume: '+"{:,}".format((sum(total_coin_sell)))+"\nCopyright: @trading_analysis_bot",fontsize=25,y=1.03,loc='left')
+    ax1.set_title('Exchange: Binance Market: '+market+' Time Frame: 1 [hour]'+' Time Length: '+str(len(candles[:,1]))+' [hours]'+'\nTotal Trades: '+"{:,}".format(numTrades)+' Total Buy Volume: '+"{:,}".format((sum(total_coin_buy)))+' Total Sell Volume: '+"{:,}".format((sum(total_coin_sell))),fontsize=25,y=1.03,loc='left')
     candlestick2_ohlc(ax2,numpy.arange(0,len(total_coin)),total_coin,numpy.arange(0,len(total_coin)),total_coin,width=0.6,alpha=.35)
     candlestick2_ohlc(ax2,numpy.arange(0,len(total_coin_buy)),total_coin_buy,numpy.arange(0,len(total_coin_buy)),total_coin_buy,width=0.29,alpha=1,shift=-0.15)
     candlestick2_ohlc(ax2,total_coin_sell,total_coin_sell,numpy.arange(0,len(total_coin_sell)),numpy.arange(0,len(total_coin_sell)),width=0.29,alpha=1,shift=+0.15)
