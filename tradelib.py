@@ -14,11 +14,11 @@ def volume_analysis(client,market,num_hours):
     volumes=[candle[5] for candle in candles]
     close_min=numpy.amin(closes)
     close_max=numpy.amax(closes)
-    close_step=(close_max-close_min)/12
-    close_range=[[close_min+(i-1)*close_step,close_min+i*close_step] for i in numpy.arange(1,13)]
+    close_step=(close_max-close_min)/49
+    close_range=[[close_min+(i-1)*close_step,close_min+i*close_step] for i in numpy.arange(1,50)]
     unit_volumes=[]
     unit_closes=[]
-    for i in numpy.arange(0,11):
+    for i in numpy.arange(0,48):
         unit_closes.append(0.5*(close_range[i][0]+close_range[i][1]))
         unit_volume=sum([volumes[j] for j in numpy.arange(0,len(closes)) if close_range[i][0]<=closes[j]<=close_range[i][1]])
         unit_volumes.append(unit_volume)
