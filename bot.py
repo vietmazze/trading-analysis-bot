@@ -75,11 +75,12 @@ def a(bot,update,args):
      
 def i(bot,update,args):
     bot.send_chat_action(chat_id=update.message.chat_id,action=telegram.ChatAction.TYPING)
-    coin_name=args[0].upper()
-    msg=infolib.getInfo(coin_name)
-    bot.sendMessage(update.message.chat_id,msg,parse_mode=ParseMode.MARKDOWN,disable_web_page_preview=True)
-    if str(update.message.from_user.username)!=ADMIN_USERNAME:
-        bot.sendMessage(ADMIN_ID,'chat_id: '+str(update.message.chat_id)+' username: @'+str(update.message.from_user.username)+' market: /'+str(coin_name))
+    for coin_name in args:
+        coin_name=coin_name.upper()
+        msg=infolib.getInfo(coin_name)
+        bot.sendMessage(update.message.chat_id,msg,parse_mode=ParseMode.MARKDOWN,disable_web_page_preview=True)
+        if str(update.message.from_user.username)!=ADMIN_USERNAME:
+            bot.sendMessage(ADMIN_ID,'chat_id: '+str(update.message.chat_id)+' username: @'+str(update.message.from_user.username)+' market: /'+str(coin_name))
         
 def m(bot,update):
     bot.send_chat_action(chat_id=update.message.chat_id,action=telegram.ChatAction.TYPING)
