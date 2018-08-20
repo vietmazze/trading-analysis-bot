@@ -9,6 +9,8 @@ def getMarket(coin_name):
         market='BTCUSDT'
     elif coin_name[-3:].upper()=='BTC':
         market=coin_name.upper()
+    elif coin_name[-3:].upper()=='ETH' and len(coin_name)>=4:
+        market=coin_name.upper()
     else:
         market=coin_name.upper()+'BTC'
     return market
@@ -19,7 +21,7 @@ def getInfo(coin_name):
     msg=''
     for coin_id in coin_id_list:
         response=(requests.get("https://api.coingecko.com/api/v3/coins/"+coin_id)).json()
-        msg=msg+"Symbol: "+str(coin_name.upper())+" Name: "+str(response['name'])+"\n"
+        msg=msg+"#"+str(coin_name.upper())+" _"+str(response['name'])+"_\n"
         msg=msg+"*Community* (Reddit, Facebook, Twitter)"+"\n"
         community_data=response['community_data']
         for key, value in community_data.iteritems():

@@ -34,17 +34,10 @@ ADMIN_USERNAME=os.environ['ADMIN_USERNAME']
 def send_msg(bot,update):
     if str(update.message.from_user.username)==ADMIN_USERNAME:
         msg=update.message.text
-        if msg[0:19]=='/send_msg markdown ':
-            msg=msg[19:]
+        if msg[0:10]=='/send_msg ':
+            msg=msg[10:]
             for id_item in id_list:
                 bot.send_message(chat_id=id_item,text=msg,parse_mode=ParseMode.MARKDOWN)
-        if msg[0:15]=='/send_msg html ':
-            msg=msg[15:]
-            for id_item in id_list:
-                bot.send_message(chat_id=id_item,text=msg,parse_mode=ParseMode.HTML)
-        if msg[0:14]=='/send_msg img ':
-            link=msg[14:]
-            bot.send_message(chat_id=update.message.chat_id,text='<img src="'+link+'"/>',parse_mode=ParseMode.HTML)
                 
 def t(bot,update,args):
     bot.send_chat_action(chat_id=update.message.chat_id,action=telegram.ChatAction.TYPING)
@@ -135,7 +128,6 @@ def main():
     dp.add_handler(CommandHandler("i",i,pass_args=True))
     dp.add_handler(CommandHandler("m",m))
     dp.add_handler(CommandHandler("h",h))
-    dp.add_handler(MessageHandler(Filters.text,send_msg))
     dp.add_handler(MessageHandler(Filters.command,send_msg))
     updater.start_polling()
     updater.idle()
