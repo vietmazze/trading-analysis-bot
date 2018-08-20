@@ -214,6 +214,9 @@ def trade_analysis_500(client,market,opt):
     if market[-3:]=='BTC':
         n_bot_buy=len(numpy.where(buy_values<0.001)[0])
         n_bot_sell=len(numpy.where(sell_values<0.001)[0])
+    elif market[-3:]=='ETH':
+        n_bot_buy=len(numpy.where(buy_values<0.01)[0])
+        n_bot_sell=len(numpy.where(sell_values<0.01)[0])
     else:
         n_bot_buy=-1
         n_bot_sell=-1
@@ -221,6 +224,10 @@ def trade_analysis_500(client,market,opt):
         btcPrice=float(client.get_recent_trades(symbol='BTCUSDT')[-1]['price'])
         buy_values=buy_values*btcPrice
         sell_values=sell_values*btcPrice
+    if market[-3:]=='ETH':
+        ethPrice=float(client.get_recent_trades(symbol='ETHUSDT')[-1]['price'])
+        buy_values=buy_values*ethPrice
+        sell_values=sell_values*ethPrice
     total_buy=int(sum(buy_values))
     total_sell=int(sum(sell_values))
     n_buy=len(buy_values)
