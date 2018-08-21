@@ -9,7 +9,7 @@ def btc_alarm():
     total_buy=int(sum(buy_volume))
     total_sell=int(sum(sell_volume))
     vol_diff=total_buy-total_sell
-    msg='Bitfinex BTCUSD (Last 5 mins):\n- Buy volume: '+"{:,}".format(total_buy)+'\n- Sell volume: '+"{:,}".format(total_sell)+'\n- Difference volume: '+"{:,}".format(vol_diff)
+    msg='*Bitfinex* BTCUSD (Within last 5 mins):\n- Buy volume: '+"{:,}".format(total_buy)+'\n- Sell volume: '+"{:,}".format(total_sell)+'\n- Difference volume: '+"{:,}".format(vol_diff)
     if total_buy<=20 and vol_diff<=-100:
         alarm=True
     elif vol_diff>=100:
