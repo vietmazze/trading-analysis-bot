@@ -46,27 +46,32 @@ def send_msg(bot,update):
 def nofity(bot,job):   
     alarm,msg=btclib.btc_alarm()
     if alarm:
-        bot.send_message(chat_id=job.context["chat_id"],text=msg,parse_mode=ParseMode.MARKDOWN)
+        for id_item in id_list:
+#            bot.send_message(chat_id=job.context["chat_id"],text=msg,parse_mode=ParseMode.MARKDOWN)
+            bot.send_message(chat_id=id_item,text=msg,parse_mode=ParseMode.MARKDOWN)
 
 def btc(bot,update,job_queue,chat_data):
-    bot.send_chat_action(chat_id=update.message.chat_id,action=telegram.ChatAction.TYPING)
-    time_period=250
-    if 'job' not in chat_data:
-        job=job_queue.run_repeating(nofity,interval=time_period,first=0,context={"chat_id": update.message.chat_id})
-        chat_data['job']=job
-        update.message.reply_text('Monitoring set.')
-    else:
-        update.message.reply_text('Please unset current monitoring.')
+    if str(update.message.from_user.username)==ADMIN_USERNAME:
+        bot.send_chat_action(chat_id=update.message.chat_id,action=telegram.ChatAction.TYPING)
+        time_period=250
+        if 'job' not in chat_data:
+#            job=job_queue.run_repeating(nofity,interval=time_period,first=0,context={"chat_id": update.message.chat_id})
+            job=job_queue.run_repeating(nofity,interval=time_period,first=0)
+            chat_data['job']=job
+            update.message.reply_text('Monitoring set.')
+        else:
+            update.message.reply_text('Please unset current monitoring.')
         
 def u(bot,update,chat_data):
-    bot.send_chat_action(chat_id=update.message.chat_id,action=telegram.ChatAction.TYPING)
-    if 'job' not in chat_data:
-        update.message.reply_text('You have no active monitoring.')
-        return
-    job=chat_data['job']
-    job.schedule_removal()
-    del chat_data['job']
-    update.message.reply_text('Monitoring unset.')
+    if str(update.message.from_user.username)==ADMIN_USERNAME:
+        bot.send_chat_action(chat_id=update.message.chat_id,action=telegram.ChatAction.TYPING)
+        if 'job' not in chat_data:
+            update.message.reply_text('You have no active monitoring.')
+            return
+        job=chat_data['job']
+        job.schedule_removal()
+        del chat_data['job']
+        update.message.reply_text('Monitoring unset.')
                 
 def t(bot,update,args):
     bot.send_chat_action(chat_id=update.message.chat_id,action=telegram.ChatAction.TYPING)
