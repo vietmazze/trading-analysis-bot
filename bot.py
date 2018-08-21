@@ -43,7 +43,7 @@ def send_msg(bot,update):
             for id_item in id_list:
                 bot.send_message(chat_id=id_item,text=msg,parse_mode=ParseMode.MARKDOWN)
                 
-def nofity(bot,job):   
+def nofity(bot,job):
     alarm,msg=btclib.btc_alarm()
     if alarm:
         for id_item in id_list:
