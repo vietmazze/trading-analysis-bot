@@ -1,6 +1,8 @@
 import urllib,json
 
 def btc_alarm():
+    VOL_BUY=20
+    VOL_DIFF=100
     url = "https://api.bitfinex.com/v1/trades/btcusd?limit_trades=500"
     trades=json.loads(urllib.urlopen(url).read())
     past_time=trades[0]['timestamp']-5*60  
@@ -9,10 +11,10 @@ def btc_alarm():
     total_buy=int(sum(buy_volume))
     total_sell=int(sum(sell_volume))
     vol_diff=total_buy-total_sell
-    msg='*Bitfinex* BTCUSD (Within last 5 mins):\n- Buy volume: '+"{:,}".format(total_buy)+'\n- Sell volume: '+"{:,}".format(total_sell)+'\n- Difference volume: '+"{:,}".format(vol_diff)
-    if total_buy<=20 and vol_diff<=-100:
+    msg='*Bitfinex* BTCUSD (within last 5 mins):\n- Buy volume: '+"{:,}".format(total_buy)+'\n- Sell volume: '+"{:,}".format(total_sell)+'\n- Difference volume: '+"{:,}".format(vol_diff)
+    if total_buy<=VOL_BUY and vol_diff<=-VOL_DIFF:
         alarm=True
-    elif vol_diff>=100:
+    elif vol_diff>=VOL_DIFF:
         alarm=True
     else:
         alarm=False

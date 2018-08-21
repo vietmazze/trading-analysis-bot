@@ -58,9 +58,9 @@ def btc(bot,update,job_queue,chat_data):
 #            job=job_queue.run_repeating(nofity,interval=time_period,first=0,context={"chat_id": update.message.chat_id})
             job=job_queue.run_repeating(nofity,interval=time_period,first=0)
             chat_data['job']=job
-            update.message.reply_text('Monitoring set.')
+            update.message.reply_text('Bitfinex BTC monitoring set.')
         else:
-            update.message.reply_text('Please unset current monitoring.')
+            update.message.reply_text('Please unset current Bitfinex BTC monitoring.')
         
 def u(bot,update,chat_data):
     if str(update.message.from_user.username)==ADMIN_USERNAME:
@@ -71,7 +71,7 @@ def u(bot,update,chat_data):
         job=chat_data['job']
         job.schedule_removal()
         del chat_data['job']
-        update.message.reply_text('Monitoring unset.')
+        update.message.reply_text('Bitfinex BTC monitoring unset.')
                 
 def t(bot,update,args):
     bot.send_chat_action(chat_id=update.message.chat_id,action=telegram.ChatAction.TYPING)
